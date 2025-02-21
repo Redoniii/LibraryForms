@@ -52,21 +52,6 @@ namespace LibraryForms
             GetHuazimet();
         }
 
-        private void txtSearchTime_TextChanged(object sender, EventArgs e)
-        {
-            string fillerText = txtSearchDitVonese.Text;
-
-            if (int.TryParse(fillerText, out int day))  // Try to parse fillerText as an integer
-            {
-                DataView dataView = new DataView(dt);
-                dataView.RowFilter = $"Dite_Vonese = {day}";
-                dgvHuazimetEVonesuara.DataSource = dataView;
-            }
-            else
-            {
-                dgvHuazimetEVonesuara.DataSource = dt;  // No filter if the input is not a valid integer
-            }
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -80,7 +65,23 @@ namespace LibraryForms
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            DateTime selectedDate = dateTimePicker1.Value.Date; // Get selected date
+            DataView dataView = new DataView(dt);
 
+            // Filter by Data_huazimit
+            dataView.RowFilter = $"Data_Huazimit = #{selectedDate:MM/dd/yyyy}#";
+
+            dgvHuazimetEVonesuara.DataSource = dataView;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvHuazimetEVonesuara.DataSource = dt;
+
+            // Clear any applied filters
+            DataView dataView = new DataView(dt);
+            dataView.RowFilter = ""; // Remove any filtering
+            dgvHuazimetEVonesuara.DataSource = dataView;
         }
     }
 }

@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HuazimetEVonesuara));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSearchDitVonese = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvHuazimetEVonesuara = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHuazimetEVonesuara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -45,21 +45,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(771, 236);
+            this.label1.Location = new System.Drawing.Point(768, 238);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 144;
-            this.label1.Text = "Dita e Voneses";
+            this.label1.Text = "Data e Huazimit";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtSearchDitVonese
-            // 
-            this.txtSearchDitVonese.Location = new System.Drawing.Point(729, 255);
-            this.txtSearchDitVonese.Multiline = true;
-            this.txtSearchDitVonese.Name = "txtSearchDitVonese";
-            this.txtSearchDitVonese.Size = new System.Drawing.Size(191, 28);
-            this.txtSearchDitVonese.TabIndex = 143;
-            this.txtSearchDitVonese.TextChanged += new System.EventHandler(this.txtSearchTime_TextChanged);
             // 
             // label12
             // 
@@ -69,9 +60,9 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(416, 255);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(265, 25);
+            this.label12.Size = new System.Drawing.Size(270, 25);
             this.label12.TabIndex = 142;
-            this.label12.Text = "Search By Dita e Voneses";
+            this.label12.Text = "Search By Data e Huazimit";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // dgvHuazimetEVonesuara
@@ -112,11 +103,21 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(966, 258);
+            this.dateTimePicker1.Location = new System.Drawing.Point(729, 257);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(177, 22);
             this.dateTimePicker1.TabIndex = 160;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(922, 255);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 28);
+            this.button1.TabIndex = 161;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // HuazimetEVonesuara
             // 
@@ -126,11 +127,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1501, 731);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSearchDitVonese);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dgvHuazimetEVonesuara);
             this.DoubleBuffered = true;
@@ -148,11 +149,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearchDitVonese;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvHuazimetEVonesuara;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
     }
 }
