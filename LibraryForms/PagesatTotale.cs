@@ -26,7 +26,7 @@ namespace LibraryForms
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM ViewTotalPaymentsPerClientWithTime", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM vViewTotalPaymentsPerClient", conn);
                     //SqlCommand cmd = new SqlCommand("SELECT DoctorID, FirstName, LastName, Specialization, Phone, Email, de.DepartmentName from Doctors d\r\ninner join Departments de on de.DepartmentID = d.DepartmentID", conn);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -47,44 +47,32 @@ namespace LibraryForms
             GetPagesat();
         }
 
-        private void txtSearchTime_TextChanged(object sender, EventArgs e)
-        {
-            string fillerText = txtSearchTime.Text;
-
-            if (int.TryParse(fillerText, out int year))  // Try to parse fillerText as an integer
-            {
-                DataView dataView = new DataView(dt);
-                dataView.RowFilter = $"PaymentYear = {year}";
-                dgvPagesatTotale.DataSource = dataView;
-            }
-            else
-            {
-                dgvPagesatTotale.DataSource = dt;  // No filter if the input is not a valid integer
-            }
-
-
-        }
 
         private void label12_Click(object sender, EventArgs e)
         {
 
         }
 
-        //private void txtSearchTime2_TextChanged(object sender, EventArgs e)
-        //{
-        //    string fillerText = txtSearchTime.Text;
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateTimePicker1.Value.Date; // Get selected date
+            DataView dataView = new DataView(dt);
 
-        //    if (int.TryParse(fillerText, out int month))  // Try to parse fillerText as an integer
-        //    {
-        //        DataView dataView = new DataView(dt);
-        //        dataView.RowFilter = $"PaymentMonth = {month}";
-        //        dgvPagesatTotale.DataSource = dataView;
-        //    }
-        //    else
-        //    {
-        //        dgvPagesatTotale.DataSource = dt;  // No filter if the input is not a valid integer
-        //    }
+            // Filter by Data_huazimit
+            dataView.RowFilter = $"Payment_Date = #{selectedDate:MM/dd/yyyy}#";
 
-        //}
+            dgvPagesatTotale.DataSource = dataView;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvPagesatTotale.DataSource = dt;
+
+            // Clear any applied filters
+            DataView dataView = new DataView(dt);
+            dataView.RowFilter = ""; // Remove any filtering
+            dgvPagesatTotale.DataSource = dataView;
+        }
+
     }
 }
