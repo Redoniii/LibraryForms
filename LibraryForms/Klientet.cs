@@ -116,7 +116,7 @@ namespace LibraryForms
                         try
                         {
                             conection.Open();
-                            SqlCommand cmd = new SqlCommand("RegisterClient", conection);
+                            SqlCommand cmd = new SqlCommand("RegisterClientt", conection);
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@FirstName", txtFName.Text);
                             cmd.Parameters.AddWithValue("@LastName", txtLName.Text);
@@ -124,6 +124,7 @@ namespace LibraryForms
                             cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                             cmd.Parameters.AddWithValue("@Phone", txtPhone.Text); // Use DateTimePicker.Value
                             cmd.Parameters.AddWithValue("@Address", txtAddress.Text); // Numeric value
+                            cmd.Parameters.AddWithValue("@Membership_Active", cmbActive.Text);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Data has been Added", "Save");
                             GetClients();
